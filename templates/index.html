@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+<!-- 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index_style.css')}}"> -->
+	<style>
+		body,html{
+			margin:0;
+		}
+      body {
+
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+        background-color: 	rgb(255,255, 255,0.12);
+        background-size:cover;
+      }
+      input, select, textarea {
+color: red;
+}
+    </style>
+	<title>Youtube Downloader</title>
+</head>
+<body>
+<div class="mui-appbar" style="background-color:rgb(89, 38, 38); height:70px; ">
+	<table width = "100%">
+		<tr style="vertical-align: middle;">
+			<td class="mui--appbar-height" style="font-size: 30px; letter-spacing: 5px; padding-left: 25px">YT Audio</td>
+			
+		</tr>
+	</table>
+
+</div>
+<form action= "#" method = "post" autocomplete="off">
+
+		<!-- <form class="mui-form--inline"> -->
+		<div class="mui-container-fluid" style="padding-top: 90px; ">
+			<div class = "mui-col-md-6 mui-col-md-offset-3">
+		 		<div class ="mui-textfield" style="background:none; ">
+		 			<input type="text" name="entry" width = "25%" style="background: transparent  color: #BEB1B1;">
+		 		</div>
+ 			</div>
+ 			<div style="padding-top: 5px">
+		 	<button class="mui-btn mui-btn--flat" value = "search" name="submit">Search</button>
+		 	</div>
+		</div>
+	  <!-- </form> -->
+
+		<div" style = "text-align: center;" class = "hello">
+			<div style="padding-top: 55px">{{head}}</div>
+		</div style = "text-align: center;"  class="mui--text-center">	
+
+		 <!-- <div class = "mui-container"> -->
+		 <table width = "100%">
+
+		 	{% for i in content %}	
+		
+		 	<!-- <div class="row"> -->
+		 		<!-- <div> -->
+		 			<!-- <label for = {{i.itag}} style="display: inline-block;" > -->
+		 			{% if i.filesize != 0 %}	
+		 				<td width="20%" class="mui--align-middle"><input type="radio" name= "options" id = {{i.itag}} value = {{i.itag}}>
+		 				{{"{0:.2f}".format(i.filesize/1024000)}}MB</td>
+		 			<!-- </label> -->	
+		 		<!-- </div> -->
+		 <!-- 		<div class="mui-col-md-11">
+		 			<label for = {{i.itag}} style="text-align: left;" >{{i.mime_type}}</label>
+		 		</div> -->
+		 		<br>
+		 	<!-- </div> -->		
+		 	{% else %}
+		 	 <h2 class="mui--align-middle">oops no result</h2>
+		 	 {% endif %}
+		 	{% endfor %}
+		 	</table>	
+		 	<div style="align-items: center; padding-top: 100px">	
+		 	{%if r == 1 %}	 	
+		 		<input type="submit" value = "submit" name ="submit" class = "mui-btn mui-btn--flat">
+	
+		 	{% endif %}	
+		 	</div>
+	 
+		<!-- </div> -->
+</form>
+   <div style=" position:fixed; bottom: 0; right: 0">
+   	<p>sharooq_</p>
+   </div>
+</body>
+</html>
